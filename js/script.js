@@ -54,16 +54,22 @@ const personalMovieDB = {
     }
   },
   toggleVisibleMyDB: () => {
-    if (personalMovieDB.privat) {
-      personalMovieDB.privat = false;
-    } else {
-      personalMovieDB.privat = true;
-    }
+    personalMovieDB.privat = !personalMovieDB.privat;
   },
   writeYourGenres: () => {
     for (let i = 0; i < 3; i++) {
-      const answer = prompt(`Ваш улюблений жанр під номером ${i + 1}`, "");
-      personalMovieDB.genres[i] = answer;
+      const answer = prompt(`Your favorite genre number ${i + 1}`, "");
+
+      if (answer == null || answer == "") {
+        i--;
+        alert("Try again!");
+      } else {
+        personalMovieDB.genres[i] = answer;
+        alert("The data has been successfully added to our database!");
+      }
     }
+    personalMovieDB.genres.forEach((item, i) => {
+      console.log(`Favorite genre ${i + 1} is ${item}`);
+    });
   },
 };
