@@ -57,14 +57,27 @@ const personalMovieDB = {
     personalMovieDB.privat = !personalMovieDB.privat;
   },
   writeYourGenres: () => {
-    for (let i = 0; i < 3; i++) {
-      const answer = prompt(`Your favorite genre number ${i + 1}`, "");
+    for (let i = 0; i < 1; i++) {
+      //   const answer = prompt(`Your favorite genre number ${i + 1}`, "");
+
+      //   if (answer == null || answer == "") {
+      //     i--;
+      //     alert("Try again!");
+      //   } else {
+      //     personalMovieDB.genres[i] = answer;
+      //     alert("The data has been successfully added to our database!");
+      //   }
+
+      const answer = prompt(
+        "Please name us your three favorite movie genres using coma",
+        "",
+      ).toLocaleLowerCase();
 
       if (answer == null || answer == "") {
         i--;
         alert("Try again!");
       } else {
-        personalMovieDB.genres[i] = answer;
+        personalMovieDB.genres = answer.split(", ");
         alert("The data has been successfully added to our database!");
       }
     }
