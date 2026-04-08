@@ -51,4 +51,10 @@ function detectPersonalLevel() {
 
 detectPersonalLevel();
 
-console.log(personalMovieDB);
+function showMyDB(show) {
+  if (!show) {
+    console.log(personalMovieDB);
+  }
+}
+
+showMyDB();
